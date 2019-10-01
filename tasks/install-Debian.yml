@@ -1,0 +1,24 @@
+---
+
+- name: Install sensu_backend
+  apt:
+    name: "{{ sensu_backend_package }}"
+    state: present
+
+- name: Install sensu_backend_extra_packages
+  apt:
+    name: "{{ sensu_backend_extra_packages }}"
+    state: present
+
+- name: Create /etc/default/sensu-backend
+  template:
+    src: Debian.default.j2
+    dest: /etc/default/sensu-backend
+    validate: sh -n %s
+  notify:
+    - Restart sensu_backend
+
+- name: Enable sensu_backend
+  service:
+    name: "{{ sensu_backend_service }}"
+    enabled: true

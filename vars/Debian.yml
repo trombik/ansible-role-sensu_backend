@@ -1,0 +1,8 @@
+---
+__sensu_backend_package: sensu-go-backend
+__sensu_backend_user: sensu
+__sensu_backend_group: sensu
+__sensu_backend_db_dir: /var/lib/sensu
+__sensu_backend_cache_dir: /var/cache/sensu/sensu-backend
+__sensu_backend_service: sensu-backend
+__sensu_backend_conf_dir: /etc/sensu

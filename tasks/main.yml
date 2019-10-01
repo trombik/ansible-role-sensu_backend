@@ -17,21 +17,29 @@
 - name: Create db directory
   file:
     path: "{{ sensu_backend_db_dir }}"
-    mode: 0755
+    mode: 0750
     owner: "{{ sensu_backend_user }}"
     group: "{{ sensu_backend_group }}"
     state: directory
   notify: Restart sensu_backend
 
-- name: Create sensu_backend.conf
+- name: Create sensu_backend_cache_dir directory
+  file:
+    path: "{{ sensu_backend_cache_dir }}"
+    mode: 0750
+    owner: "{{ sensu_backend_user }}"
+    group: "{{ sensu_backend_group }}"
+    state: directory
+  notify: Restart sensu_backend
+
+- name: Create backend.yml
   template:
-    src: sensu_backend.conf.j2
+    src: backend.yml.j2
     dest: "{{ sensu_backend_conf_file }}"
-    validate: echo %s
+    # validate: echo %s
   notify: Restart sensu_backend
 
 - name: Start sensu_backend
   service:
     name: "{{ sensu_backend_service }}"
-    enabled: true
     state: started

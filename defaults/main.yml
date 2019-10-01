@@ -1,9 +1,13 @@
 ---
-sensu_backend_user: sensu_backend
-sensu_backend_group: sensu_backend
-sensu_backend_log_dir: /var/log/sensu_backend
+sensu_backend_package: "{{ __sensu_backend_package }}"
+sensu_backend_extra_packages: []
+sensu_backend_user: "{{ __sensu_backend_user }}"
+sensu_backend_group: "{{ __sensu_backend_group }}"
+sensu_backend_log_dir: /var/log/sensu
 sensu_backend_db_dir: "{{ __sensu_backend_db_dir }}"
-sensu_backend_service: sensu_backend
+sensu_backend_cache_dir: "{{ __sensu_backend_cache_dir }}"
+sensu_backend_service: "{{ __sensu_backend_service }}"
 sensu_backend_conf_dir: "{{ __sensu_backend_conf_dir }}"
-sensu_backend_conf_file: "{{ __sensu_backend_conf_dir }}/sensu_backend.conf"
+sensu_backend_conf_file: "{{ sensu_backend_conf_dir }}/backend.yml"
+sensu_backend_config: ""
 sensu_backend_flags: ""

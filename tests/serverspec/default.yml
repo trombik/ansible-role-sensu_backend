@@ -1,6 +1,15 @@
 ---
 - hosts: localhost
   roles:
+    - role: trombik.apt_repo
     - ansible-role-sensu_backend
   vars:
-    sensu_backend_config: ""
+    apt_repo_keys_to_add:
+      - https://packagecloud.io/sensu/stable/gpgkey
+    apt_repo_to_add:
+      - deb https://packagecloud.io/sensu/stable/ubuntu/ bionic main
+    apt_repo_enable_apt_transport_https: yes
+    sensu_backend_config:
+      state-dir: "{{ sensu_backend_db_dir }}"
+      cache-dir: "{{ sensu_backend_cache_dir }}"
+      log-level: warn
