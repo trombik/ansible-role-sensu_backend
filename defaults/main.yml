@@ -1,0 +1,9 @@
+---
+sensu_backend_user: sensu_backend
+sensu_backend_group: sensu_backend
+sensu_backend_log_dir: /var/log/sensu_backend
+sensu_backend_db_dir: "{{ __sensu_backend_db_dir }}"
+sensu_backend_service: sensu_backend
+sensu_backend_conf_dir: "{{ __sensu_backend_conf_dir }}"
+sensu_backend_conf_file: "{{ __sensu_backend_conf_dir }}/sensu_backend.conf"
+sensu_backend_flags: ""

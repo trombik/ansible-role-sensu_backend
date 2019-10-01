@@ -1,0 +1,3 @@
+---
+__sensu_backend_db_dir: /var/db/sensu_backend
+__sensu_backend_conf_dir: /usr/local/etc/sensu_backend

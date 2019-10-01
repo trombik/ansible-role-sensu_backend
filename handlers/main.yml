@@ -1,0 +1,6 @@
+---
+
+- name: Restart sensu_backend
+  service:
+    name: sensu_backend
+    state: restarted
