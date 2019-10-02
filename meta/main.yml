@@ -2,13 +2,14 @@
 galaxy_info:
   role_name: sensu_backend
   author: Tomoyuki Sakurai
-  description: Configures something
+  description: Configures sensu-go-backend
   company: N/A
   license: BSD
   min_ansible_version: 2.0
   platforms:
-    - name: FreeBSD
+    - name: Ubuntu
       versions:
-        - 12.0
+        - bionic
   galaxy_tags:
-    - system
+    - sensu
+    - monitoring
