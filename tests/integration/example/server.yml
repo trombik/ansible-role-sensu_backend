@@ -9,4 +9,24 @@
 
   pre_tasks:
   roles:
-    - sensu_backend
+    - name: trombik.apt_repo
+      when: ansible_os_family == 'Debian'
+    - name: trombik.sensu_agent
+    - ansible-role-sensu_backend
+  vars:
+    apt_repo_keys_to_add:
+      - https://packagecloud.io/sensu/stable/gpgkey
+    apt_repo_to_add:
+      - deb https://packagecloud.io/sensu/stable/ubuntu/ bionic main
+    apt_repo_enable_apt_transport_https: yes
+    sensu_backend_extra_packages:
+      - sensu-go-cli
+    sensu_backend_config:
+      state-dir: "{{ sensu_backend_db_dir }}"
+      cache-dir: "{{ sensu_backend_cache_dir }}"
+      log-level: info
+    sensu_agent_config:
+      name: server1
+      namespace: default
+      subscriptions:
+        - system
