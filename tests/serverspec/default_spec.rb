@@ -10,7 +10,7 @@ ports   = [3000, 8080, 8081]
 log_dir = "/var/log/sensu"
 db_dir  = "/var/lib/sensu"
 cache_dir = "/var/cache/sensu/sensu-backend"
-extra_packages = %w{sensu-go-cli}
+extra_packages = %w[sensu-go-cli]
 
 case os[:family]
 when "freebsd"
