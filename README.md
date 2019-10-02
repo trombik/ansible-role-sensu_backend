@@ -1,4 +1,4 @@
-# `trombiksensu_backend`
+# `trombik.sensu_backend`
 
 `ansible` role to install `sensu-go-backend`.
 
